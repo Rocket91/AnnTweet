@@ -30,10 +30,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
--[x] user can see the retweet count of any tweet in the detailed view
--[x] user can see the likes count of any tweet in the detailed view
--[x] user can see the exact time a tweet have been post in the detailed view
+
+- [x] user can see the retweet count of any tweet in the detailed view
+- [x] user can see the likes count of any tweet in the detailed view
+- [x] user can see the exact time a tweet have been post in the detailed view
 
 ## Video Walkthrough
 
