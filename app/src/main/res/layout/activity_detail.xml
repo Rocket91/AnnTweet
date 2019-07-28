@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:background="@drawable/gradient_8">
+
+    <ImageView
+        android:id="@+id/ivProfileImage2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tvName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="ing Yvenson Jean-Charles"
+        android:layout_toEndOf="@id/ivProfileImage2"
+        android:textColor="@color/colorBlackprimary"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:id="@+id/tvScreenName2"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="realrocket"
+        android:layout_toEndOf="@id/tvName2"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorBlackprimary"
+        android:layout_toLeftOf="@id/tvTime2"
+        />
+
+    <TextView
+        android:id="@+id/tvTime2"
+        android:textColor="@color/colorBlackprimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="this is my tweet"
+        android:layout_below="@id/ivProfileImage2"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:textColor="@color/colorBlackprimary"
+        android:textSize="25dp"
+
+        android:layout_margin="10dp"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:layout_below="@id/tvCreadteAt2"
+        android:layout_marginHorizontal="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvRetweetedCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50 retweets"
+        android:layout_below="@id/divider2"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/colorBlackprimary"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvLikesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300 Likes"
+        android:layout_below="@id/divider2"
+        android:layout_toEndOf="@id/tvRetweetedCount"
+        android:layout_marginStart="30dp"
+        android:textColor="@color/colorBlackprimary"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvCreadteAt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@id/tvBody2"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorBlackprimary"/>
+</RelativeLayout>
