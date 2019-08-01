@@ -25,10 +25,10 @@ public class User {
         user.uid = jsonObject.getLong("id");
         user.screenName = jsonObject.getString("screen_name");
         user.profileImageURL = jsonObject.getString("profile_image_url");
-        user.FollowingCount = jsonObject.getString("listed_count");
+        user.FollowingCount = jsonObject.getString("friends_count");
         user.FollowersCount = jsonObject.getString("followers_count");
         user.Descriptions = jsonObject.getString("description");
-        user.backgroundImage = jsonObject.getString("profile_background_image_url");
+        user.backgroundImage = jsonObject.getString("profile_background_image_url_https");
 
         return user;
     }

@@ -60,6 +60,7 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
+                i.putExtra("tweet", Parcels.wrap(tweet));
                 startActivity(i);
             }
         });
@@ -175,6 +176,7 @@ public class TimelineActivity extends AppCompatActivity {
             //tapped on compose icon
             //navigate to a new activity
             Intent i = new Intent(this, ComposeActivity.class);
+            i.putExtra("tweet", Parcels.wrap(tweet));
             startActivityForResult(i, REQUEST_CODE);
             return true;
         }

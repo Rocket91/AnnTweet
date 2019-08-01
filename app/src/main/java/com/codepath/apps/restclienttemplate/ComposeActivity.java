@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -27,6 +28,7 @@ public class ComposeActivity extends AppCompatActivity {
     private Button btnTweet;
     private TwitterClient client;
     private ImageView ivUserProfileImage;
+    Tweet tweet;
 
 
     @Override
@@ -36,9 +38,12 @@ public class ComposeActivity extends AppCompatActivity {
 
         client = TwitterApp.getRestClient(this);
 
+        tweet = Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
         ivUserProfileImage = findViewById(R.id.ivUserProfileImage);
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+
+
 
         // set click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {
