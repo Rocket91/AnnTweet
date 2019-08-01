@@ -11,14 +11,14 @@ public class User {
     }
 
     public String name;
-    public  long vid;
+    public  long uid;
     public String screenName;
     public String profileImageURL;
 
     public static User fromJson(JSONObject jsonObject) throws JSONException {
         User user = new User();
         user.name = jsonObject.getString("name");
-        user.vid = jsonObject.getLong("id");
+        user.uid = jsonObject.getLong("id");
         user.screenName = jsonObject.getString("screen_name");
         user.profileImageURL = jsonObject.getString("profile_image_url");
 

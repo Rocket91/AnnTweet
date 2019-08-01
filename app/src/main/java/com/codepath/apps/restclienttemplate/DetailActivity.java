@@ -48,8 +48,8 @@ public class DetailActivity extends AppCompatActivity {
                 .transform(new CircleCrop())
                 .into(ivProfileImage2);
 
-        tvRetweetedCount.setText(tweet.retweetedCount+ " retweets");
-        tvLikesCount.setText(tweet.likesCount+ " likes");
+        tvRetweetedCount.setText(tweet.retweetedCount+ " Retweets");
+        tvLikesCount.setText(tweet.likesCount+ " Likes");
 
     }
 }

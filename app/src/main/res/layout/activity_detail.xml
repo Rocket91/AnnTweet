@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity"
-    android:background="@drawable/gradient_8">
+    android:background="@color/colorBlackTwitter"
+    >
 
     <ImageView
         android:id="@+id/ivProfileImage2"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         tools:text="ing Yvenson Jean-Charles"
         android:layout_toEndOf="@id/ivProfileImage2"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"/>
 
@@ -31,13 +32,13 @@
         android:text="realrocket"
         android:layout_toEndOf="@id/tvName2"
         android:layout_marginTop="10dp"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:layout_toLeftOf="@id/tvTime2"
         />
 
     <TextView
         android:id="@+id/tvTime2"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -52,7 +53,7 @@
         android:layout_below="@id/ivProfileImage2"
         android:autoLink="all"
         android:linksClickable="true"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:textSize="25dp"
 
         android:layout_margin="10dp"/>
@@ -73,7 +74,7 @@
         android:text="50 retweets"
         android:layout_below="@id/divider2"
         android:layout_marginStart="10dp"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -84,7 +85,7 @@
         android:layout_below="@id/divider2"
         android:layout_toEndOf="@id/tvRetweetedCount"
         android:layout_marginStart="30dp"
-        android:textColor="@color/colorBlackprimary"
+        android:textColor="@color/colorWhite"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -95,5 +96,5 @@
         android:layout_below="@id/tvBody2"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="5dp"
-        android:textColor="@color/colorBlackprimary"/>
+        android:textColor="@color/colorWhite"/>
 </RelativeLayout>

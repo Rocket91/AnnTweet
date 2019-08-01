@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TimelineActivity"
-    android:background="@drawable/gradient_8">
+    android:background="@color/colorBlackTwitter">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
@@ -29,4 +30,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
-</android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/swipeContainer"
+        android:layout_marginBottom="25dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/colorBlue"
+        android:tint="@color/colorWhite"
+
+        />
+
+
+</RelativeLayout>
