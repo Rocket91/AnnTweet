@@ -43,7 +43,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.viewHolder
 
     // bind values based on the position of the element
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final viewHolder holder, int position) {
         final Tweet tweet = tweets.get(position);
         holder.tvBody.setText(tweet.body);
         holder.tvName.setText(tweet.user.name);
@@ -52,7 +52,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.viewHolder
                 .transform(new CircleCrop())
                 .into(holder.ivProfileImage);
 
-        holder.tvTime.setText(tweet.getFormattedTimestamp);
+        holder.tvTime.setText(tweet.getFormattedTimestamp + "Ago");
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +60,15 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.viewHolder
                 Intent i = new Intent(context, DetailActivity.class);
                 i.putExtra("tweet", Parcels.wrap(tweet));
                 context.startActivity(i);
+
+                holder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(context, ProfileActivity.class);
+                        i.putExtra("tweet", Parcels.wrap(tweet));
+                        context.startActivity(i);
+                    }
+                });
             }
         });
     }

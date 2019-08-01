@@ -122,8 +122,8 @@ public class TimelineActivity extends AppCompatActivity {
 
                         }
 
+                        adapter.clear();
                         adapter.addTweets(tweetsToAdd);
-
                         swipeContainer.setRefreshing(false);
 
                     }
@@ -151,8 +151,6 @@ public class TimelineActivity extends AppCompatActivity {
 
         rvTweets.addOnScrollListener(scrollListener);
         rvTweets.setAdapter(adapter);
-
-
         popularHomeTimeline();
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

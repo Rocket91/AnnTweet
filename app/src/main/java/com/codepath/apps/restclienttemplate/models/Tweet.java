@@ -20,6 +20,7 @@ public class Tweet {
     public String getFormattedTimestamp;
     public String retweetedCount;
     public  String likesCount;
+    public String imageTweet;
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -30,6 +31,7 @@ public class Tweet {
         tweet.getFormattedTimestamp = TimeFormatter.getTimeDifference(tweet.createdAt);
         tweet.retweetedCount = jsonObject.getString("retweet_count");
         tweet.likesCount = jsonObject.getString("favorite_count");
+
 
         return tweet;
     }

@@ -14,6 +14,10 @@ public class User {
     public  long uid;
     public String screenName;
     public String profileImageURL;
+    public String FollowingCount;
+    public String FollowersCount;
+    public String Descriptions;
+    public String backgroundImage;
 
     public static User fromJson(JSONObject jsonObject) throws JSONException {
         User user = new User();
@@ -21,6 +25,10 @@ public class User {
         user.uid = jsonObject.getLong("id");
         user.screenName = jsonObject.getString("screen_name");
         user.profileImageURL = jsonObject.getString("profile_image_url");
+        user.FollowingCount = jsonObject.getString("listed_count");
+        user.FollowersCount = jsonObject.getString("followers_count");
+        user.Descriptions = jsonObject.getString("description");
+        user.backgroundImage = jsonObject.getString("profile_background_image_url");
 
         return user;
     }

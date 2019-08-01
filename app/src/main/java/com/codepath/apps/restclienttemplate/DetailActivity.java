@@ -1,7 +1,9 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvRetweetedCount;
     TextView tvLikesCount;
     TextView tvBody2;
+    ImageView ivEmbeddedImage;
 
     Tweet tweet;
 
@@ -36,20 +39,32 @@ public class DetailActivity extends AppCompatActivity {
         tvRetweetedCount = findViewById(R.id.tvRetweetedCount);
         tvLikesCount = findViewById(R.id.tvLikesCount);
         tvBody2 = findViewById(R.id.tvBody2);
+        ivEmbeddedImage = findViewById(R.id.ivEmbeddedImage);
 
 
         tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
         tvName2.setText(tweet.user.name);
         tvScreenName2.setText("@" +tweet.user.screenName);
-        tvTime2.setText(tweet.getFormattedTimestamp);
+        tvTime2.setText(tweet.getFormattedTimestamp + "Ago");
         tvCreatedAt2.setText(tweet.createdAt);
         tvBody2.setText(tweet.body);
         GlideApp.with(this).load(tweet.user.profileImageURL)
                 .transform(new CircleCrop())
                 .into(ivProfileImage2);
 
+
+
         tvRetweetedCount.setText(tweet.retweetedCount+ " Retweets");
         tvLikesCount.setText(tweet.likesCount+ " Likes");
 
+        ivProfileImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailActivity.this, ProfileActivity.class);
+                i.putExtra("tweet", Parcels.wrap(tweet));
+                startActivity(i);
+            }
+        });
     }
+
 }
