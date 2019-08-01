@@ -3,8 +3,9 @@
     <color name="colorWhite">#fff</color>
     <color name="colorBlackprimary">#141414</color>
     <color name="colorBlue"> #1da1f2</color>
-    <color name="colorBlackTwitter">#14171A</color>
+    <color name="colorBlueDarkTwitter">#010418</color>
     <color name="colorDarkGrey">#657786</color>
+    <color name="colorBlackTwitter">#050929</color>
 
 
 </resources>

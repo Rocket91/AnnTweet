@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -25,6 +26,8 @@ public class ComposeActivity extends AppCompatActivity {
     private EditText etCompose;
     private Button btnTweet;
     private TwitterClient client;
+    private ImageView ivUserProfileImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         client = TwitterApp.getRestClient(this);
 
+        ivUserProfileImage = findViewById(R.id.ivUserProfileImage);
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
 
@@ -80,5 +84,7 @@ public class ComposeActivity extends AppCompatActivity {
         });
 
 
+
     }
+
 }

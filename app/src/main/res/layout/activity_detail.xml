@@ -93,8 +93,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_below="@id/tvBody2"
+        android:layout_below="@id/ivEmbeddedImage"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="5dp"
         android:textColor="@color/colorWhite"/>
+
+    <ImageView
+        android:id="@+id/ivEmbeddedImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="10dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_below="@id/tvBody2"/>
 </RelativeLayout>
