@@ -8,12 +8,20 @@
     android:background="@color/colorBlackTwitter"
     >
 
+    <include
+        android:id="@+id/toolbar3"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
     <ImageView
         android:id="@+id/ivProfileImage2"
         android:layout_width="60dp"
         android:layout_height="60dp"
         tools:srcCompat="@tools:sample/avatars"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:layout_below="@id/toolbar3"/>
 
     <TextView
         android:id="@+id/tvName2"
@@ -22,6 +30,7 @@
         tools:text="ing Yvenson Jean-Charles"
         android:layout_toEndOf="@id/ivProfileImage2"
         android:textColor="@color/colorWhite"
+        android:layout_below="@id/toolbar3"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"/>
 
@@ -30,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="realrocket"
+        android:layout_below="@id/toolbar3"
         android:layout_toEndOf="@id/tvName2"
         android:layout_marginTop="10dp"
         android:textColor="@color/colorWhite"
@@ -43,6 +53,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_alignParentEnd="true"
+        android:layout_below="@id/toolbar3"
         android:layout_marginTop="10dp"/>
 
     <TextView

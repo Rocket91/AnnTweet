@@ -6,5 +6,5 @@
         android:id="@+id/compose"
         android:icon="@drawable/twitt_icon_2"
         android:title="Compose"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 </menu>

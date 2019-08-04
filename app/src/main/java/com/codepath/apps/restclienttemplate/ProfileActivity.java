@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,10 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Profile");
 
         tweet = Parcels.unwrap(getIntent().getParcelableExtra("tweet"));
         ivProfileBackgroundImage = findViewById(R.id.ivProfileBackgroundImage);

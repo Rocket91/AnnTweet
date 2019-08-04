@@ -8,26 +8,33 @@
     tools:context=".TimelineActivity"
     android:background="@color/colorBlackTwitter">
 
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@id/toolbar_main"
 
         >
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvTweets"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvTweets"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
@@ -36,12 +43,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/swipeContainer"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/compose_icon_1"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/colorBlue"
         android:tint="@color/colorWhite"
 

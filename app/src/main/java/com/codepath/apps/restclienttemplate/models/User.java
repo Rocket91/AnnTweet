@@ -28,7 +28,7 @@ public class User {
         user.FollowingCount = jsonObject.getString("friends_count");
         user.FollowersCount = jsonObject.getString("followers_count");
         user.Descriptions = jsonObject.getString("description");
-        user.backgroundImage = jsonObject.getString("profile_background_image_url_https");
+        user.backgroundImage = jsonObject.getString("profile_banner_url");
 
         return user;
     }

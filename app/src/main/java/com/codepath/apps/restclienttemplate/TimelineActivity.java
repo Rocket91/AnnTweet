@@ -39,6 +39,7 @@ public class TimelineActivity extends AppCompatActivity {
     private EndlessRecyclerViewScrollListener scrollListener;
     private Tweet tweet;
     private FloatingActionButton actionButton;
+    private long lowestId;
 
     private SwipeRefreshLayout swipeContainer;
 
@@ -47,13 +48,11 @@ public class TimelineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setTitle("Home");
-        String title = actionBar.getTitle().toString();
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.twitt_logo_2);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Home");
+
 
         actionButton =  findViewById(R.id.btnFAB);
         actionButton.setOnClickListener(new View.OnClickListener() {
@@ -85,11 +84,8 @@ public class TimelineActivity extends AppCompatActivity {
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
         // recycler view setup: layout manager and setting the adapter
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvTweets.setLayoutManager(linearLayoutManager);
-        rvTweets.setAdapter(adapter);
-
-
 
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
 
@@ -97,61 +93,16 @@ public class TimelineActivity extends AppCompatActivity {
 
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
 
-                client.getNextPageOfTweets(new JsonHttpResponseHandler(){
+                loadNextDataFromApi(lowestId);
 
-                    @Override
-
-                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-
-                        List<Tweet>tweetsToAdd = new ArrayList<>();
-
-                        for (int i=0; i < response.length(); i++){
-
-                            try {
-
-                                JSONObject jsonTweetObject = response.getJSONObject(i);
-
-                                tweet = Tweet.fromJson(jsonTweetObject);
-
-                                tweetsToAdd.add(tweet);
-
-                            } catch (JSONException e) {
-
-                                e.printStackTrace();
-
-                            }
-
-                        }
-
-                        adapter.clear();
-                        adapter.addTweets(tweetsToAdd);
-                        swipeContainer.setRefreshing(false);
-
-                    }
-
-
-
-                    @Override
-
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
-
-                    }
-
-
-
-                    @Override
-
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
-                    }
-
-                },tweet.uid);
             }
 
         };
-
         rvTweets.addOnScrollListener(scrollListener);
         rvTweets.setAdapter(adapter);
+
+
+
         popularHomeTimeline();
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -162,6 +113,88 @@ public class TimelineActivity extends AppCompatActivity {
         });
 
     }
+
+    private void loadNextDataFromApi(long page) {
+
+        client.getNextPageOfTweets(new JsonHttpResponseHandler(){
+
+            @Override
+
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+
+                Log.d("Scroll",response.toString());
+
+                List<Tweet>tweetsToAdd = new ArrayList<>();
+
+                try {
+
+                    lowestId = response.getJSONObject(0).getLong("id");
+
+                } catch (JSONException e) {
+
+                    e.printStackTrace();
+
+                }
+
+                for (int i=0;i < response.length();i++){
+
+                    try {
+
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        if (jsonObject.getLong("id") < lowestId){
+
+                            lowestId = jsonObject.getLong("id");
+
+                        }
+
+                        Tweet tweet = Tweet.fromJson(jsonObject);
+
+                        //add tweet to data source
+
+                        //tweetList.add(tweet);
+
+                        tweetsToAdd.add(tweet);
+
+                    } catch (JSONException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+                //tweetList.clear();
+
+                adapter.notifyDataSetChanged();
+
+                scrollListener.resetState();
+
+            }
+
+
+
+            @Override
+
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+
+            }
+
+
+
+            @Override
+
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+
+                super.onFailure(statusCode, headers, responseString, throwable);
+
+            }
+
+        },page);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -196,6 +229,7 @@ public class TimelineActivity extends AppCompatActivity {
         }
     }
 
+
     private void popularHomeTimeline() {
         client.getHomeTimeline(new JsonHttpResponseHandler(){
             @Override
@@ -203,9 +237,25 @@ public class TimelineActivity extends AppCompatActivity {
               //  Log.d("Twitter", response.toString());
                 // iterate through the list of tweets
                 List<Tweet> tweetsToAdd = new ArrayList<>();
+                try {
+
+                    lowestId = response.getJSONObject(0).getLong("id");
+
+                } catch (JSONException e) {
+
+                    e.printStackTrace();
+
+                }
+
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonTweetObject = response.getJSONObject(i);
+
+                        if (jsonTweetObject.getLong("id") < lowestId){
+
+                            lowestId = jsonTweetObject.getLong("id");
+                        }
+
                         // convert each JsonObject into a tweet object
                         Tweet tweet = Tweet.fromJson(jsonTweetObject);
                         // add the tweet into a data source

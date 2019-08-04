@@ -52,7 +52,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.viewHolder
                 .transform(new CircleCrop())
                 .into(holder.ivProfileImage);
 
-        holder.tvTime.setText(tweet.getFormattedTimestamp + "Ago");
+        holder.tvTime.setText(tweet.getFormattedTimestamp);
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
