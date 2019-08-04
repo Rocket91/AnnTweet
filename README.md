@@ -2,7 +2,7 @@
 
 **Ann Tweet** is an android app that allows a user to view his Twitter timeline and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
-Time spent: **X** hours spent in total
+Time spent: **30** hours spent in total
 
 ## User Stories
 
@@ -47,7 +47,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/Rocket91/AnnTweet/blob/master/walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/Rocket91/AnnTweet/blob/master/walkthrough3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
